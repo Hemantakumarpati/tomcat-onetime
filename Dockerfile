@@ -1,9 +1,10 @@
-FROM ubuntu:latest
-RUN apt-get -y update && apt-get -y upgrade && apt-get install -y wget
-RUN mkdir -p /usr/local/tomcat
-RUN pwd
-RUN wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33.tar.gz -O /tmp/apache-tomcat-9.0.33.tar.gz
-RUN cd /tmp && tar xvfz apache-tomcat-9.0.33.tar.gz
-RUN cp apache-tomcat-9.0.33/* /usr/local/tomcat/
-EXPOSE 8080
-#CMD /usr/local/tomcat/bin/catalina.sh run
+FROM tomcat
+
+MAINTAINER hemant.pati@gmail.com
+
+RUN apt-get update && apt-get -y upgrade
+
+WORKDIR /usr/local/tomcat
+
+COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml

@@ -5,7 +5,7 @@ RUN cd /tmp
 RUN wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33.tar.gz 
 RUN pwd
 RUN cd /tmp chmod 777 apache-tomcat-9.0.33.tar.gz
-RUN cd /tmp && tar xvf apache-tomcat-9.0.33.tar.gz
+RUN cd /tmp && tar xzvf apache-tomcat-9.0.33.tar.gz
 RUN cp apache-tomcat-9.0.33/* /usr/local/tomcat/
 EXPOSE 8080
 #CMD /usr/local/tomcat/bin/catalina.sh run

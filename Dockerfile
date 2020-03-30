@@ -9,6 +9,6 @@ RUN tar xvfz apache*.tar.gz
 RUN apt-get install default-jdk -y
 RUN java -version
 WORKDIR /opt/tomcat/apache-tomcat-9.0.33
-COPY sample.war /opt/tomcat/apache-tomcat-9.0.33/webapps
+COPY LoginWebApp.war /opt/tomcat/apache-tomcat-9.0.33/webapps
 EXPOSE 8086
 CMD ["/opt/tomcat/apache-tomcat-9.0.33/bin/catalina.sh", "run"]
